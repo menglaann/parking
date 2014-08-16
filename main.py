@@ -121,7 +121,7 @@ class Getcount(webapp2.RequestHandler):
                 # self.response.write(tt)
                 tt += 9 * 3600
                 # self.response.write(tt)
-                history.time = datetime.datetime.utcfromtimestamp(tt)
+                # history.time = datetime.datetime.utcfromtimestamp(tt)
                 self.response.write(history.time)
                 self.response.write('%%%%%%%1')
                 global time_key
