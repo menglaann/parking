@@ -43,8 +43,8 @@ MAIN_PAGE_HTML = """\
 
 
 class History(ndb.Model):
-
     time = ndb.DateTimeProperty(auto_now_add=True)
+
 history = History()
 time_key = None
 
@@ -78,7 +78,7 @@ class Gettime(webapp2.RequestHandler):
         self.response.write(deadline)
 
     def post(self):
-        global time_key
+        # global time_key
         deadline = time_key.get()
         self.response.write(deadline)
 
@@ -117,11 +117,12 @@ class Getcount(webapp2.RequestHandler):
                 # self.response.write('count:'+count)
                 history = History()
                 tt = time.time()
-                tt += time.altzone
+                # tt += time.altzone
                 # self.response.write(tt)
-                tt += 9 * 3600
+                tt += 8 * 3600
                 # self.response.write(tt)
-                # history.time = datetime.datetime.utcfromtimestamp(tt)
+                history.time = datetime.datetime.utcfromtimestamp(tt)
+                print history.time
                 self.response.write(history.time)
                 self.response.write('%%%%%%%1')
                 global time_key
